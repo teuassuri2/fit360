@@ -4,8 +4,11 @@ namespace App\Services;
 
 use App\Models\Receita;
 use App\Repositories\ReceitaRepository;
+use App\Traits\UploadImage;
 
 class ReceitaService {
+
+    use UploadImage;
 
     private ReceitaRepository $receitaRepository;
 

@@ -27,6 +27,7 @@ class ReceitaController extends Controller {
 
     public function index() {
         $receita = $this->receitaService->findAll();
+        exit("aqui");
         return view('receita.index', ['receita' => $receita]);
     }
 
