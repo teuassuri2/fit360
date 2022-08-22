@@ -20,11 +20,11 @@ return response()->json(new MuralResource($mural), 200);
 public function index() {
 $mural = $this->muralService->findAll();
 return view('mural.index', ['mural' => $mural ]);}
-public function storeApi(StoreMuralRequest $request) {if ($request->isMethod("post")) {$mural = $this->muralService->store($request->validated());return response()->json(new MuralJsonResource($mural), 200);}
+public function storeApi(StoreMuralRequest $request) {if ($request->isMethod("post")) {$mural = $this->muralService->create($request->validated());return response()->json(new MuralJsonResource($mural), 200);}
 }
 public function editApi(Mural$mural ,StoreMuralRequest $request) {if ($request->isMethod("post")) {$mural = $this->muralService->update($mural,$request->validated());return response()->json(new MuralJsonResource($mural), 200);}
 }
-public function store(StoreMuralRequest $request) {if ($request->isMethod("post")) {$mural = $this->muralService->store($request->validated());}
+public function store(StoreMuralRequest $request) {if ($request->isMethod("post")) {$mural = $this->muralService->create($request->validated());}
 return view('mural.add');}
 public function edit(Mural$mural ,StoreMuralRequest $request) {if ($request->isMethod("post")) {$mural = $this->muralService->update($mural,$request->validated());}
 return view('mural.edit', ['dados' => $mural ]);}

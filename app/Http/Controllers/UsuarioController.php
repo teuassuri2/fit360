@@ -20,11 +20,11 @@ return response()->json(new UsuarioResource($usuario), 200);
 public function index() {
 $usuario = $this->usuarioService->findAll();
 return view('usuario.index', ['usuario' => $usuario ]);}
-public function storeApi(StoreUsuarioRequest $request) {if ($request->isMethod("post")) {$usuario = $this->usuarioService->store($request->validated());return response()->json(new UsuarioJsonResource($usuario), 200);}
+public function storeApi(StoreUsuarioRequest $request) {if ($request->isMethod("post")) {$usuario = $this->usuarioService->create($request->validated());return response()->json(new UsuarioJsonResource($usuario), 200);}
 }
 public function editApi(Usuario$usuario ,StoreUsuarioRequest $request) {if ($request->isMethod("post")) {$usuario = $this->usuarioService->update($usuario,$request->validated());return response()->json(new UsuarioJsonResource($usuario), 200);}
 }
-public function store(StoreUsuarioRequest $request) {if ($request->isMethod("post")) {$usuario = $this->usuarioService->store($request->validated());}
+public function store(StoreUsuarioRequest $request) {if ($request->isMethod("post")) {$usuario = $this->usuarioService->create($request->validated());}
 return view('usuario.add');}
 public function edit(Usuario$usuario ,StoreUsuarioRequest $request) {if ($request->isMethod("post")) {$usuario = $this->usuarioService->update($usuario,$request->validated());}
 return view('usuario.edit', ['dados' => $usuario ]);}

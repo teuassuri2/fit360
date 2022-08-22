@@ -20,11 +20,11 @@ return response()->json(new DesafioParticipanteResource($desafioParticipante), 2
 public function index() {
 $desafioParticipante = $this->desafioParticipanteService->findAll();
 return view('desafio_participante.index', ['desafio_participante' => $desafioParticipante ]);}
-public function storeApi(StoreDesafioParticipanteRequest $request) {if ($request->isMethod("post")) {$desafioParticipante = $this->desafioParticipanteService->store($request->validated());return response()->json(new DesafioParticipanteJsonResource($desafioParticipante), 200);}
+public function storeApi(StoreDesafioParticipanteRequest $request) {if ($request->isMethod("post")) {$desafioParticipante = $this->desafioParticipanteService->create($request->validated());return response()->json(new DesafioParticipanteJsonResource($desafioParticipante), 200);}
 }
 public function editApi(DesafioParticipante$desafioParticipante ,StoreDesafioParticipanteRequest $request) {if ($request->isMethod("post")) {$desafioParticipante = $this->desafioParticipanteService->update($desafioParticipante,$request->validated());return response()->json(new DesafioParticipanteJsonResource($desafioParticipante), 200);}
 }
-public function store(StoreDesafioParticipanteRequest $request) {if ($request->isMethod("post")) {$desafioParticipante = $this->desafioParticipanteService->store($request->validated());}
+public function store(StoreDesafioParticipanteRequest $request) {if ($request->isMethod("post")) {$desafioParticipante = $this->desafioParticipanteService->create($request->validated());}
 return view('desafio_participante.add');}
 public function edit(DesafioParticipante$desafioParticipante ,StoreDesafioParticipanteRequest $request) {if ($request->isMethod("post")) {$desafioParticipante = $this->desafioParticipanteService->update($desafioParticipante,$request->validated());}
 return view('desafio_participante.edit', ['dados' => $desafioParticipante ]);}

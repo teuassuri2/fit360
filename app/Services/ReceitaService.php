@@ -16,8 +16,8 @@ class ReceitaService {
         $this->receitaRepository = $receitaRepository;
     }
 
-    public function store(array $data) {
-        return $this->receitaRepository->store($data);
+    public function create(array $data) {
+        return $this->receitaRepository->create($data);
     }
 
     public function update(Receita $receita, array $data) {

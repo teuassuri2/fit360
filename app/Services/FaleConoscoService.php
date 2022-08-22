@@ -1,7 +1,7 @@
 <?php  namespace App\Services; use App\Models\FaleConosco;use App\Repositories\FaleConoscoRepository; class FaleConoscoService {  private FaleConoscoRepository $faleConoscoRepository;public function __construct(FaleConoscoRepository $faleConoscoRepository)
     {
         $this->faleConoscoRepository = $faleConoscoRepository;
-    }public function store(array $data){return $this->faleConoscoRepository->store($data);
+    }public function create(array $data){return $this->faleConoscoRepository->create($data);
 }public function update(FaleConosco $faleConosco, array $data){return $this->faleConoscoRepository->update( $faleConosco, $data);
 }public function findAll()
     {

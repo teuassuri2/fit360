@@ -27,13 +27,12 @@ class ReceitaController extends Controller {
 
     public function index() {
         $receita = $this->receitaService->findAll();
-        exit("aqui");
         return view('receita.index', ['receita' => $receita]);
     }
 
     public function storeApi(StoreReceitaRequest $request) {
         if ($request->isMethod("post")) {
-            $receita = $this->receitaService->store($request->validated());
+            $receita = $this->receitaService->create($request->validated());
             return response()->json(new ReceitaJsonResource($receita), 200);
         }
     }
@@ -45,9 +44,12 @@ class ReceitaController extends Controller {
         }
     }
 
-    public function store(StoreReceitaRequest $request) {
+    public function cadastrar(Request $request) {
+        $d = $this->receitaService->create($request->all());
+        dd($d);
+        exit;
         if ($request->isMethod("post")) {
-            $receita = $this->receitaService->store($request->validated());
+            $receita = $this->receitaService->create($request->validated());
         }
         return view('receita.add');
     }

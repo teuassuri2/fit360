@@ -1,7 +1,7 @@
 <?php  namespace App\Services; use App\Models\Faq;use App\Repositories\FaqRepository; class FaqService {  private FaqRepository $faqRepository;public function __construct(FaqRepository $faqRepository)
     {
         $this->faqRepository = $faqRepository;
-    }public function store(array $data){return $this->faqRepository->store($data);
+    }public function create(array $data){return $this->faqRepository->create($data);
 }public function update(Faq $faq, array $data){return $this->faqRepository->update( $faq, $data);
 }public function findAll()
     {

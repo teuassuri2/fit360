@@ -20,11 +20,11 @@ return response()->json(new JejumIntermitenteExecucaoResource($jejumIntermitente
 public function index() {
 $jejumIntermitenteExecucao = $this->jejumIntermitenteExecucaoService->findAll();
 return view('jejum_intermitente_execucao.index', ['jejum_intermitente_execucao' => $jejumIntermitenteExecucao ]);}
-public function storeApi(StoreJejumIntermitenteExecucaoRequest $request) {if ($request->isMethod("post")) {$jejumIntermitenteExecucao = $this->jejumIntermitenteExecucaoService->store($request->validated());return response()->json(new JejumIntermitenteExecucaoJsonResource($jejumIntermitenteExecucao), 200);}
+public function storeApi(StoreJejumIntermitenteExecucaoRequest $request) {if ($request->isMethod("post")) {$jejumIntermitenteExecucao = $this->jejumIntermitenteExecucaoService->create($request->validated());return response()->json(new JejumIntermitenteExecucaoJsonResource($jejumIntermitenteExecucao), 200);}
 }
 public function editApi(JejumIntermitenteExecucao$jejumIntermitenteExecucao ,StoreJejumIntermitenteExecucaoRequest $request) {if ($request->isMethod("post")) {$jejumIntermitenteExecucao = $this->jejumIntermitenteExecucaoService->update($jejumIntermitenteExecucao,$request->validated());return response()->json(new JejumIntermitenteExecucaoJsonResource($jejumIntermitenteExecucao), 200);}
 }
-public function store(StoreJejumIntermitenteExecucaoRequest $request) {if ($request->isMethod("post")) {$jejumIntermitenteExecucao = $this->jejumIntermitenteExecucaoService->store($request->validated());}
+public function store(StoreJejumIntermitenteExecucaoRequest $request) {if ($request->isMethod("post")) {$jejumIntermitenteExecucao = $this->jejumIntermitenteExecucaoService->create($request->validated());}
 return view('jejum_intermitente_execucao.add');}
 public function edit(JejumIntermitenteExecucao$jejumIntermitenteExecucao ,StoreJejumIntermitenteExecucaoRequest $request) {if ($request->isMethod("post")) {$jejumIntermitenteExecucao = $this->jejumIntermitenteExecucaoService->update($jejumIntermitenteExecucao,$request->validated());}
 return view('jejum_intermitente_execucao.edit', ['dados' => $jejumIntermitenteExecucao ]);}

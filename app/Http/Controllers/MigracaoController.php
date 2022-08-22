@@ -20,11 +20,11 @@ return response()->json(new MigracaoResource($migracao), 200);
 public function index() {
 $migracao = $this->migracaoService->findAll();
 return view('migracao.index', ['migracao' => $migracao ]);}
-public function storeApi(StoreMigracaoRequest $request) {if ($request->isMethod("post")) {$migracao = $this->migracaoService->store($request->validated());return response()->json(new MigracaoJsonResource($migracao), 200);}
+public function storeApi(StoreMigracaoRequest $request) {if ($request->isMethod("post")) {$migracao = $this->migracaoService->create($request->validated());return response()->json(new MigracaoJsonResource($migracao), 200);}
 }
 public function editApi(Migracao$migracao ,StoreMigracaoRequest $request) {if ($request->isMethod("post")) {$migracao = $this->migracaoService->update($migracao,$request->validated());return response()->json(new MigracaoJsonResource($migracao), 200);}
 }
-public function store(StoreMigracaoRequest $request) {if ($request->isMethod("post")) {$migracao = $this->migracaoService->store($request->validated());}
+public function store(StoreMigracaoRequest $request) {if ($request->isMethod("post")) {$migracao = $this->migracaoService->create($request->validated());}
 return view('migracao.add');}
 public function edit(Migracao$migracao ,StoreMigracaoRequest $request) {if ($request->isMethod("post")) {$migracao = $this->migracaoService->update($migracao,$request->validated());}
 return view('migracao.edit', ['dados' => $migracao ]);}

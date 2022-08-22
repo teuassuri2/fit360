@@ -20,11 +20,11 @@ return response()->json(new DesafioResource($desafio), 200);
 public function index() {
 $desafio = $this->desafioService->findAll();
 return view('desafio.index', ['desafio' => $desafio ]);}
-public function storeApi(StoreDesafioRequest $request) {if ($request->isMethod("post")) {$desafio = $this->desafioService->store($request->validated());return response()->json(new DesafioJsonResource($desafio), 200);}
+public function storeApi(StoreDesafioRequest $request) {if ($request->isMethod("post")) {$desafio = $this->desafioService->create($request->validated());return response()->json(new DesafioJsonResource($desafio), 200);}
 }
 public function editApi(Desafio$desafio ,StoreDesafioRequest $request) {if ($request->isMethod("post")) {$desafio = $this->desafioService->update($desafio,$request->validated());return response()->json(new DesafioJsonResource($desafio), 200);}
 }
-public function store(StoreDesafioRequest $request) {if ($request->isMethod("post")) {$desafio = $this->desafioService->store($request->validated());}
+public function store(StoreDesafioRequest $request) {if ($request->isMethod("post")) {$desafio = $this->desafioService->create($request->validated());}
 return view('desafio.add');}
 public function edit(Desafio$desafio ,StoreDesafioRequest $request) {if ($request->isMethod("post")) {$desafio = $this->desafioService->update($desafio,$request->validated());}
 return view('desafio.edit', ['dados' => $desafio ]);}

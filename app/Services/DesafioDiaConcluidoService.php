@@ -1,7 +1,7 @@
 <?php  namespace App\Services; use App\Models\DesafioDiaConcluido;use App\Repositories\DesafioDiaConcluidoRepository; class DesafioDiaConcluidoService {  private DesafioDiaConcluidoRepository $desafioDiaConcluidoRepository;public function __construct(DesafioDiaConcluidoRepository $desafioDiaConcluidoRepository)
     {
         $this->desafioDiaConcluidoRepository = $desafioDiaConcluidoRepository;
-    }public function store(array $data){return $this->desafioDiaConcluidoRepository->store($data);
+    }public function create(array $data){return $this->desafioDiaConcluidoRepository->create($data);
 }public function update(DesafioDiaConcluido $desafioDiaConcluido, array $data){return $this->desafioDiaConcluidoRepository->update( $desafioDiaConcluido, $data);
 }public function findAll()
     {

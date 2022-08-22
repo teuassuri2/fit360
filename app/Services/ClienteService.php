@@ -13,8 +13,8 @@ class ClienteService {
         $this->clienteRepository = $clienteRepository;
     }
 
-    public function store(array $data) {
-        return $this->clienteRepository->store($data);
+    public function create(array $data) {
+        return $this->clienteRepository->create($data);
     }
 
     public function update(Cliente $cliente, array $data) {

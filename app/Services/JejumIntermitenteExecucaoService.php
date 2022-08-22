@@ -1,7 +1,7 @@
 <?php  namespace App\Services; use App\Models\JejumIntermitenteExecucao;use App\Repositories\JejumIntermitenteExecucaoRepository; class JejumIntermitenteExecucaoService {  private JejumIntermitenteExecucaoRepository $jejumIntermitenteExecucaoRepository;public function __construct(JejumIntermitenteExecucaoRepository $jejumIntermitenteExecucaoRepository)
     {
         $this->jejumIntermitenteExecucaoRepository = $jejumIntermitenteExecucaoRepository;
-    }public function store(array $data){return $this->jejumIntermitenteExecucaoRepository->store($data);
+    }public function create(array $data){return $this->jejumIntermitenteExecucaoRepository->create($data);
 }public function update(JejumIntermitenteExecucao $jejumIntermitenteExecucao, array $data){return $this->jejumIntermitenteExecucaoRepository->update( $jejumIntermitenteExecucao, $data);
 }public function findAll()
     {

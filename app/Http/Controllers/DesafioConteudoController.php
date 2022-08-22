@@ -33,7 +33,7 @@ class DesafioConteudoController extends Controller {
 
     public function storeApi(StoreDesafioConteudoRequest $request) {
         if ($request->isMethod("post")) {
-            $desafioConteudo = $this->desafioConteudoService->store($request->validated());
+            $desafioConteudo = $this->desafioConteudoService->create($request->validated());
             return response()->json(new DesafioConteudoJsonResource($desafioConteudo), 200);
         }
     }
@@ -47,7 +47,7 @@ class DesafioConteudoController extends Controller {
 
     public function store(StoreDesafioConteudoRequest $request) {
         if ($request->isMethod("post")) {
-            $desafioConteudo = $this->desafioConteudoService->store($request->validated());
+            $desafioConteudo = $this->desafioConteudoService->create($request->validated());
         }
         return view('desafio_conteudo.add');
     }

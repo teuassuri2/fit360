@@ -20,11 +20,11 @@ return response()->json(new PesoMedidaResource($pesoMedida), 200);
 public function index() {
 $pesoMedida = $this->pesoMedidaService->findAll();
 return view('peso_medida.index', ['peso_medida' => $pesoMedida ]);}
-public function storeApi(StorePesoMedidaRequest $request) {if ($request->isMethod("post")) {$pesoMedida = $this->pesoMedidaService->store($request->validated());return response()->json(new PesoMedidaJsonResource($pesoMedida), 200);}
+public function storeApi(StorePesoMedidaRequest $request) {if ($request->isMethod("post")) {$pesoMedida = $this->pesoMedidaService->create($request->validated());return response()->json(new PesoMedidaJsonResource($pesoMedida), 200);}
 }
 public function editApi(PesoMedida$pesoMedida ,StorePesoMedidaRequest $request) {if ($request->isMethod("post")) {$pesoMedida = $this->pesoMedidaService->update($pesoMedida,$request->validated());return response()->json(new PesoMedidaJsonResource($pesoMedida), 200);}
 }
-public function store(StorePesoMedidaRequest $request) {if ($request->isMethod("post")) {$pesoMedida = $this->pesoMedidaService->store($request->validated());}
+public function store(StorePesoMedidaRequest $request) {if ($request->isMethod("post")) {$pesoMedida = $this->pesoMedidaService->create($request->validated());}
 return view('peso_medida.add');}
 public function edit(PesoMedida$pesoMedida ,StorePesoMedidaRequest $request) {if ($request->isMethod("post")) {$pesoMedida = $this->pesoMedidaService->update($pesoMedida,$request->validated());}
 return view('peso_medida.edit', ['dados' => $pesoMedida ]);}

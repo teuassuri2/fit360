@@ -20,11 +20,11 @@ return response()->json(new DesafioDiaConcluidoResource($desafioDiaConcluido), 2
 public function index() {
 $desafioDiaConcluido = $this->desafioDiaConcluidoService->findAll();
 return view('desafio_dia_concluido.index', ['desafio_dia_concluido' => $desafioDiaConcluido ]);}
-public function storeApi(StoreDesafioDiaConcluidoRequest $request) {if ($request->isMethod("post")) {$desafioDiaConcluido = $this->desafioDiaConcluidoService->store($request->validated());return response()->json(new DesafioDiaConcluidoJsonResource($desafioDiaConcluido), 200);}
+public function storeApi(StoreDesafioDiaConcluidoRequest $request) {if ($request->isMethod("post")) {$desafioDiaConcluido = $this->desafioDiaConcluidoService->create($request->validated());return response()->json(new DesafioDiaConcluidoJsonResource($desafioDiaConcluido), 200);}
 }
 public function editApi(DesafioDiaConcluido$desafioDiaConcluido ,StoreDesafioDiaConcluidoRequest $request) {if ($request->isMethod("post")) {$desafioDiaConcluido = $this->desafioDiaConcluidoService->update($desafioDiaConcluido,$request->validated());return response()->json(new DesafioDiaConcluidoJsonResource($desafioDiaConcluido), 200);}
 }
-public function store(StoreDesafioDiaConcluidoRequest $request) {if ($request->isMethod("post")) {$desafioDiaConcluido = $this->desafioDiaConcluidoService->store($request->validated());}
+public function store(StoreDesafioDiaConcluidoRequest $request) {if ($request->isMethod("post")) {$desafioDiaConcluido = $this->desafioDiaConcluidoService->create($request->validated());}
 return view('desafio_dia_concluido.add');}
 public function edit(DesafioDiaConcluido$desafioDiaConcluido ,StoreDesafioDiaConcluidoRequest $request) {if ($request->isMethod("post")) {$desafioDiaConcluido = $this->desafioDiaConcluidoService->update($desafioDiaConcluido,$request->validated());}
 return view('desafio_dia_concluido.edit', ['dados' => $desafioDiaConcluido ]);}

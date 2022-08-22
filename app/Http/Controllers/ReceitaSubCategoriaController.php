@@ -20,11 +20,11 @@ return response()->json(new ReceitaSubCategoriaResource($receitaSubCategoria), 2
 public function index() {
 $receitaSubCategoria = $this->receitaSubCategoriaService->findAll();
 return view('receita_sub_categoria.index', ['receita_sub_categoria' => $receitaSubCategoria ]);}
-public function storeApi(StoreReceitaSubCategoriaRequest $request) {if ($request->isMethod("post")) {$receitaSubCategoria = $this->receitaSubCategoriaService->store($request->validated());return response()->json(new ReceitaSubCategoriaJsonResource($receitaSubCategoria), 200);}
+public function storeApi(StoreReceitaSubCategoriaRequest $request) {if ($request->isMethod("post")) {$receitaSubCategoria = $this->receitaSubCategoriaService->create($request->validated());return response()->json(new ReceitaSubCategoriaJsonResource($receitaSubCategoria), 200);}
 }
 public function editApi(ReceitaSubCategoria$receitaSubCategoria ,StoreReceitaSubCategoriaRequest $request) {if ($request->isMethod("post")) {$receitaSubCategoria = $this->receitaSubCategoriaService->update($receitaSubCategoria,$request->validated());return response()->json(new ReceitaSubCategoriaJsonResource($receitaSubCategoria), 200);}
 }
-public function store(StoreReceitaSubCategoriaRequest $request) {if ($request->isMethod("post")) {$receitaSubCategoria = $this->receitaSubCategoriaService->store($request->validated());}
+public function store(StoreReceitaSubCategoriaRequest $request) {if ($request->isMethod("post")) {$receitaSubCategoria = $this->receitaSubCategoriaService->create($request->validated());}
 return view('receita_sub_categoria.add');}
 public function edit(ReceitaSubCategoria$receitaSubCategoria ,StoreReceitaSubCategoriaRequest $request) {if ($request->isMethod("post")) {$receitaSubCategoria = $this->receitaSubCategoriaService->update($receitaSubCategoria,$request->validated());}
 return view('receita_sub_categoria.edit', ['dados' => $receitaSubCategoria ]);}

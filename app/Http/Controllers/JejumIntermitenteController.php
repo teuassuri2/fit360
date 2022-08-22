@@ -20,11 +20,11 @@ return response()->json(new JejumIntermitenteResource($jejumIntermitente), 200);
 public function index() {
 $jejumIntermitente = $this->jejumIntermitenteService->findAll();
 return view('jejum_intermitente.index', ['jejum_intermitente' => $jejumIntermitente ]);}
-public function storeApi(StoreJejumIntermitenteRequest $request) {if ($request->isMethod("post")) {$jejumIntermitente = $this->jejumIntermitenteService->store($request->validated());return response()->json(new JejumIntermitenteJsonResource($jejumIntermitente), 200);}
+public function storeApi(StoreJejumIntermitenteRequest $request) {if ($request->isMethod("post")) {$jejumIntermitente = $this->jejumIntermitenteService->create($request->validated());return response()->json(new JejumIntermitenteJsonResource($jejumIntermitente), 200);}
 }
 public function editApi(JejumIntermitente$jejumIntermitente ,StoreJejumIntermitenteRequest $request) {if ($request->isMethod("post")) {$jejumIntermitente = $this->jejumIntermitenteService->update($jejumIntermitente,$request->validated());return response()->json(new JejumIntermitenteJsonResource($jejumIntermitente), 200);}
 }
-public function store(StoreJejumIntermitenteRequest $request) {if ($request->isMethod("post")) {$jejumIntermitente = $this->jejumIntermitenteService->store($request->validated());}
+public function store(StoreJejumIntermitenteRequest $request) {if ($request->isMethod("post")) {$jejumIntermitente = $this->jejumIntermitenteService->create($request->validated());}
 return view('jejum_intermitente.add');}
 public function edit(JejumIntermitente$jejumIntermitente ,StoreJejumIntermitenteRequest $request) {if ($request->isMethod("post")) {$jejumIntermitente = $this->jejumIntermitenteService->update($jejumIntermitente,$request->validated());}
 return view('jejum_intermitente.edit', ['dados' => $jejumIntermitente ]);}

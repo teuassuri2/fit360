@@ -1,7 +1,7 @@
 <?php  namespace App\Services; use App\Models\DesafioParticipante;use App\Repositories\DesafioParticipanteRepository; class DesafioParticipanteService {  private DesafioParticipanteRepository $desafioParticipanteRepository;public function __construct(DesafioParticipanteRepository $desafioParticipanteRepository)
     {
         $this->desafioParticipanteRepository = $desafioParticipanteRepository;
-    }public function store(array $data){return $this->desafioParticipanteRepository->store($data);
+    }public function create(array $data){return $this->desafioParticipanteRepository->create($data);
 }public function update(DesafioParticipante $desafioParticipante, array $data){return $this->desafioParticipanteRepository->update( $desafioParticipante, $data);
 }public function findAll()
     {

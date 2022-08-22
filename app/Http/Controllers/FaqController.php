@@ -33,7 +33,7 @@ class FaqController extends Controller {
 
     public function storeApi(StoreFaqRequest $request) {
         if ($request->isMethod("post")) {
-            $faq = $this->faqService->store($request->validated());
+            $faq = $this->faqService->create($request->validated());
             return response()->json(new FaqJsonResource($faq), 200);
         }
     }
@@ -47,7 +47,7 @@ class FaqController extends Controller {
 
     public function store(StoreFaqRequest $request) {
         if ($request->isMethod("post")) {
-            $faq = $this->faqService->store($request->validated());
+            $faq = $this->faqService->create($request->validated());
         }
         return view('faq.add');
     }

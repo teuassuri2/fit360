@@ -20,11 +20,11 @@ return response()->json(new FaleConoscoResource($faleConosco), 200);
 public function index() {
 $faleConosco = $this->faleConoscoService->findAll();
 return view('fale_conosco.index', ['fale_conosco' => $faleConosco ]);}
-public function storeApi(StoreFaleConoscoRequest $request) {if ($request->isMethod("post")) {$faleConosco = $this->faleConoscoService->store($request->validated());return response()->json(new FaleConoscoJsonResource($faleConosco), 200);}
+public function storeApi(StoreFaleConoscoRequest $request) {if ($request->isMethod("post")) {$faleConosco = $this->faleConoscoService->create($request->validated());return response()->json(new FaleConoscoJsonResource($faleConosco), 200);}
 }
 public function editApi(FaleConosco$faleConosco ,StoreFaleConoscoRequest $request) {if ($request->isMethod("post")) {$faleConosco = $this->faleConoscoService->update($faleConosco,$request->validated());return response()->json(new FaleConoscoJsonResource($faleConosco), 200);}
 }
-public function store(StoreFaleConoscoRequest $request) {if ($request->isMethod("post")) {$faleConosco = $this->faleConoscoService->store($request->validated());}
+public function store(StoreFaleConoscoRequest $request) {if ($request->isMethod("post")) {$faleConosco = $this->faleConoscoService->create($request->validated());}
 return view('fale_conosco.add');}
 public function edit(FaleConosco$faleConosco ,StoreFaleConoscoRequest $request) {if ($request->isMethod("post")) {$faleConosco = $this->faleConoscoService->update($faleConosco,$request->validated());}
 return view('fale_conosco.edit', ['dados' => $faleConosco ]);}

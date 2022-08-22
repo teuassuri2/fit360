@@ -20,11 +20,11 @@ return response()->json(new ClienteResource($cliente), 200);
 public function index() {
 $cliente = $this->clienteService->findAll();
 return view('cliente.index', ['cliente' => $cliente ]);}
-public function storeApi(StoreClienteRequest $request) {if ($request->isMethod("post")) {$cliente = $this->clienteService->store($request->validated());return response()->json(new ClienteJsonResource($cliente), 200);}
+public function storeApi(StoreClienteRequest $request) {if ($request->isMethod("post")) {$cliente = $this->clienteService->create($request->validated());return response()->json(new ClienteJsonResource($cliente), 200);}
 }
 public function editApi(Cliente$cliente ,StoreClienteRequest $request) {if ($request->isMethod("post")) {$cliente = $this->clienteService->update($cliente,$request->validated());return response()->json(new ClienteJsonResource($cliente), 200);}
 }
-public function store(StoreClienteRequest $request) {if ($request->isMethod("post")) {$cliente = $this->clienteService->store($request->validated());}
+public function store(StoreClienteRequest $request) {if ($request->isMethod("post")) {$cliente = $this->clienteService->create($request->validated());}
 return view('cliente.add');}
 public function edit(Cliente$cliente ,StoreClienteRequest $request) {if ($request->isMethod("post")) {$cliente = $this->clienteService->update($cliente,$request->validated());}
 return view('cliente.edit', ['dados' => $cliente ]);}

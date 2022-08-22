@@ -20,11 +20,11 @@ return response()->json(new UsuarioSistemaResource($usuarioSistema), 200);
 public function index() {
 $usuarioSistema = $this->usuarioSistemaService->findAll();
 return view('usuario_sistema.index', ['usuario_sistema' => $usuarioSistema ]);}
-public function storeApi(StoreUsuarioSistemaRequest $request) {if ($request->isMethod("post")) {$usuarioSistema = $this->usuarioSistemaService->store($request->validated());return response()->json(new UsuarioSistemaJsonResource($usuarioSistema), 200);}
+public function storeApi(StoreUsuarioSistemaRequest $request) {if ($request->isMethod("post")) {$usuarioSistema = $this->usuarioSistemaService->create($request->validated());return response()->json(new UsuarioSistemaJsonResource($usuarioSistema), 200);}
 }
 public function editApi(UsuarioSistema$usuarioSistema ,StoreUsuarioSistemaRequest $request) {if ($request->isMethod("post")) {$usuarioSistema = $this->usuarioSistemaService->update($usuarioSistema,$request->validated());return response()->json(new UsuarioSistemaJsonResource($usuarioSistema), 200);}
 }
-public function store(StoreUsuarioSistemaRequest $request) {if ($request->isMethod("post")) {$usuarioSistema = $this->usuarioSistemaService->store($request->validated());}
+public function store(StoreUsuarioSistemaRequest $request) {if ($request->isMethod("post")) {$usuarioSistema = $this->usuarioSistemaService->create($request->validated());}
 return view('usuario_sistema.add');}
 public function edit(UsuarioSistema$usuarioSistema ,StoreUsuarioSistemaRequest $request) {if ($request->isMethod("post")) {$usuarioSistema = $this->usuarioSistemaService->update($usuarioSistema,$request->validated());}
 return view('usuario_sistema.edit', ['dados' => $usuarioSistema ]);}
